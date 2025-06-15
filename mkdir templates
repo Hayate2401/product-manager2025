@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品一覧</title>
+</head>
+<body>
+    <h1>商品一覧</h1>
+    {% for product in products %}
+        <div>
+            <h3>{{ product.name }}</h3>
+            <p>型番: {{ product.model }}</p>
+            <p>価格: ¥{{ product.price }}</p>
+            <p>カテゴリー: {{ product.category }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ログイン</title>
+</head>
+<body>
+    <h1>ログイン</h1>
+    <form method="POST">
+        <input type="email" name="email" placeholder="メールアドレス" required><br>
+        <input type="password" name="password" placeholder="パスワード" required><br>
+        <button type="submit">ログイン</button>
+    </form>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+</head>
+<body>
+    <h1>新規アカウント登録</h1>
+    <form method="POST">
+        <input type="email" name="email" placeholder="メールアドレス" required><br>
+        <input type="password" name="password" placeholder="パスワード" required><br>
+        <button type="submit">登録</button>
+    </form>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>アカウント設定</title>
+</head>
+<body>
+    <h1>アカウント設定</h1>
+    <p>現在の倉庫: {{ warehouse.name }}</p>
+    <a href="/warehouse_select">倉庫を切り替える</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>倉庫選択</title>
+</head>
+<body>
+    <h1>倉庫を選択してください</h1>
+    <form method="POST">
+        {% for warehouse in warehouses %}
+            <div>
+                <input type="radio" name="warehouse_id" value="{{ warehouse.id }}" required>
+                {{ warehouse.name }}
+            </div>
+        {% endfor %}
+        <button type="submit">選択</button>
+    </form>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品詳細</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+    <p>型番: {{ product.model }}</p>
+    <p>価格: ¥{{ product.price }}</p>
+    <p>カテゴリー: {{ product.category }}</p>
+    <p>説明: {{ product.description }}</p>
+</body>
+</html>
